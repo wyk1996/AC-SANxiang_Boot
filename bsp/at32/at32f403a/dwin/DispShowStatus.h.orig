@@ -1,0 +1,54 @@
+/*******************************************************************************
+ *          Copyright (c) 2020-2050,  Co., Ltd.
+ *                              All Right Reserved.
+ * @file
+ * @note
+ * @brief
+ *
+ * @author
+ * @date     2021-05-02
+ * @version  V1.0.0
+ *
+ * @Description
+ *
+ * @note History:
+ * @note     <author>   <time>    <version >   <desc>
+ * @note
+ * @warning
+ *******************************************************************************/
+#ifndef __DISPSTATUS_H_
+#define __DISPSTATUS_H_
+
+#include <rtthread.h>
+#include "stdint.h"
+//#include "DwinProtocol.h"
+#include "ch_port.h"
+
+//œ‘ æ◊¥ÃÂ
+typedef enum
+{
+    SHOW_START_APP,  		//APP∆Ù∂Ø
+    SHOW_START_CARD,		//À¢ø®∆Ù∂Ø
+    SHOW_BILL,				//“—Ω·À„
+    SHOW_NOTBIL,			//Œ¥Ω·À„
+    SHOW_STOP_ERR_NONE,		//’˝≥£Õ£÷π
+    SHOW_STOP_FAIL,			//π ’œÕ£÷π
+	  SHOW_STOP_LESS,   //”‡∂Ó≤ª◊„Õ£÷π
+    SHOW_XY_HY,   //ª„”˛
+	  SHOW_XY_AP,
+    SHOW_XY_YKC,  //‘∆øÏ≥‰ 
+    SHOW_XY_HFQG,   
+    SHOW_XY_YL1,   
+    SHOW_XY_YL2,   
+    SHOW_XY_YL3,  
+    SHOW_XY_YL4,  
+	  SHOW_GUNA, //A«π
+    SHOW_GUNB,	//B«π
+    SHOW_MAX,
+} _SHOW_NUM;
+
+
+uint8_t Dis_ShowStatus(uint16_t add_show,_SHOW_NUM show_num);
+uint8_t Dis_ShowCopy(uint8_t* pdata,_SHOW_NUM show_num);
+uint8_t Dis_Showstop_reason(uint8_t* pdata,STOP_REASON Stop_reasonnum);
+#endif
